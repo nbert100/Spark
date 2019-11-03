@@ -9,6 +9,7 @@ User
     
 
 Location
+belongs_to :date ?
 - place (restaurant, show, etc)
 - city
 
