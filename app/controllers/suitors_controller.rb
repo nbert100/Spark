@@ -15,7 +15,7 @@ class SuitorsController < ApplicationController
     end
 
     def index
-        @suitors = Suitor.all
+        @suitors = Suitor.all.sort_by_age
     end
 
     def show
@@ -29,7 +29,7 @@ class SuitorsController < ApplicationController
     def update
         set_suitor
         if @suitor.update(suitor_params(:occupation))
-            redirect to suitor_path(@suitor)
+            redirect_to suitor_path(@suitor)
         else
             render :edit
         end
