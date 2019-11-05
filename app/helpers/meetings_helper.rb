@@ -1,2 +1,2 @@
-module RendezvousHelper
+module MeetingsHelper
 end

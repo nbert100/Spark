@@ -15,7 +15,7 @@ class SuitorsController < ApplicationController
     end
 
     def index
-        @suitors = Suitor.all.sort_by_age
+        @suitors = Suitor.all
     end
 
     def show
