@@ -4,6 +4,7 @@ Name: <%= @suitor.name %>
 Age: <%= @suitor.age %>
 <br>
 Occupation: <%= @suitor.occupation %>
-
+<br>
 <%= link_to "Edit Suitor", edit_suitor_path(@suitor) %>
-<%%= link_to "Delete Suitor", suitor_path(@suitor), method: :delete %>
+<br>
+<%= link_to "Delete Suitor", suitor_path(@suitor), method: :delete %>

@@ -5,11 +5,11 @@ class SuitorsController < ApplicationController
     end
 
     def create
-        @suitor = Suitor.new(suitor_params)
-
+        @suitor = Suitor.new(suitor_params(:name, :age, :occupation))
         if @suitor.save
             redirect_to suitor_path(@suitor)
         else
+            raise.inspect
             render :new
         end
     end
