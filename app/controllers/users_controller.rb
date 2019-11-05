@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         if @user.save
             #login user
             session[:user_id] = @user.id 
-            redirect_to user_path
+            redirect_to user_path(@user)
             #user show page
         else
             #add flash message

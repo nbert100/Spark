@@ -19,13 +19,44 @@ class SuitorsController < ApplicationController
     end
 
     def show
-        @suitor = Suitor.find_by(id: params[:id])
+        set_suitor
+    end
+
+    def edit
+        set_suitor
+    end
+
+    def update
+        set_suitor
+        if @suitor.update(suitor_params(:occupation))
+            redirect to suitor_path(@suitor)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        set_suitor
+        @suitor.destroy
+        redirect_to suitors_path
     end
 
     private
 
     #for security purposes
-    def suitor_params
-        params.require(:suitor).permit(:name, :occupation, :age)
+    # def suitor_params
+    #     params.require(:suitor).permit(:name, :occupation, :age)
+    # end
+
+    def suitor_params(*args)
+        params.require(:suitor).permit(*args)
+    end
+
+    def set_suitor
+        @suitor = Suitor.find_by(id: params[:id])
+        if !@suitor
+            redirect_to suitors_path
+        end
+        #for dynamic routes
     end
 end

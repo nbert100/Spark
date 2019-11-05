@@ -1,1 +1,9 @@
 <h1>This is the show page</h1>
+Name: <%= @suitor.name %>
+<br>
+Age: <%= @suitor.age %>
+<br>
+Occupation: <%= @suitor.occupation %>
+
+<%= link_to "Edit Suitor", edit_suitor_path(@suitor) %>
+<%%= link_to "Delete Suitor", suitor_path(@suitor), method: :delete %>

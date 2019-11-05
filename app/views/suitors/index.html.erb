@@ -1,1 +1,5 @@
-<h1>All the suitors</h1>
+<h1>Contestants</h1>
+<% @suitors.each do |s| %>
+    <%= s.name %>, <%= s.age %>
+    <br>
+    <% end %>
