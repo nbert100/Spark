@@ -1,0 +1,11 @@
+<h1>All the Dates!</h1>
+
+<%= form_tag(url: "/meetings", method: "get") do %>
+    <%= label_tag(:location, "Search by Location:") %>
+    <%= text_field_tag(:location) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
+<% @meetings.each do |m| %>
+    <p><%= link_to m.location, meeting_path(m) %> - <%= m.venue %></p>
+<% end %>
