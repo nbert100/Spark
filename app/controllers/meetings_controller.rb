@@ -1,6 +1,13 @@
 class MeetingsController < ApplicationController
     def new
+        #check if nested and an actual id
+        if params[:suitor_id] && suitor = Suitor.find_by_id(params[:suitor_id])
+        #nested route
+        @meeting = suitor.meetings.build
+        else
+            #unnested route
         @meeting = Meeting.new
+        end
     end
     
     def create
@@ -13,7 +20,12 @@ class MeetingsController < ApplicationController
     end
 
     def index
-        @meetings = Meeting.all
+        if params[:suitor_id] && suitor = Suitor.find_by_id(params[:suitor_id])
+            meetings = suitor.meetings
+        else
+            meetings = Meeting.all
+        end
+
     end
 
     def show

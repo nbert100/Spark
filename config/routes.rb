@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
   resources :users
   #resources :suitors, only:[:new, :create, :show, :index, :update, :edit, :destroy]
-  resources :suitors
+ 
   resources :meetings
+
+  resources :suitors do
+    resources :meetings, only: [:new, :show, :index]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #resources :suitors, only:[:show] is the same as get 'pets/:id' => 'pets#show'
 end

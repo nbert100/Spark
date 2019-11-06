@@ -7,5 +7,5 @@
   <% end %>
 
 <% @meetings.each do |m| %>
-    <p><%= link_to m.location, meeting_path(m) %> - <%= m.venue %></p>
+    <p><%= link_to m.location, meeting_path(m) %> - <%= m.venue %> with <%= m.suitor.name %></p>
 <% end %>
