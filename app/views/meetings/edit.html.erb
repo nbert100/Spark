@@ -1,0 +1,26 @@
+<h1> Edit Date </h1>
+
+<ul>
+<% @user.errors.full_messages.each do |e| %>
+    <li><%= e %></li>
+    <% end %>
+</ul>
+
+<%= form_for(@meeting) do |f| %>
+    <%= f.label :venue %>
+    <%= f.select(:venue, ["Restaurant", "Coffee Shop", "Bar", "Other"]) %>
+    <br>
+    <%= f.label(:location, "Where:") %>
+    <%= f.text_field :location %>
+    <br>
+    <%= f.label(:appointment, "When:") %>
+    <%= f.date_field :appointment %>
+    <br>
+    
+    <%= f.label :suitor_id, "Choose a Suitor" %>
+    <%= f.collection_select :suitor_id, Suitor.all, :id, :name, prompt: true %>
+    <%= %>
+    <%= %>
+    
+    <%= f.submit %>
+    <% end %>

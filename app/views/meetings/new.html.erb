@@ -1,5 +1,11 @@
 <h1> Add a Date </h1>
 
+<ul>
+<% @meeting.errors.full_messages.each do |e| %>
+    <li><%= e %></li>
+    <% end %>
+</ul>
+
 <%= form_for(@meeting) do |f| %>
 <%= f.label :venue %>
 <%= f.select(:venue, ["Restaurant", "Coffee Shop", "Bar", "Other"]) %>
