@@ -1,10 +1,8 @@
 <h1> Add a Date </h1>
 
-<ul>
-<% @meeting.errors.full_messages.each do |e| %>
-    <li><%= e %></li>
-    <% end %>
-</ul>
+<%= render partial: 'layouts/errors', locals: {object: @meeting} %>
+
+
 
 <%= form_for(@meeting) do |f| %>
 <%= f.label :venue %>

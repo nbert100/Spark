@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect_to user_path(@user)
         else
-            #flash message
+            flash[:error] = "Invalid Login. Please try again."
             redirect_to '/login'
             #only get errors if you render
         end
