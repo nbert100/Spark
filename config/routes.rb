@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-  get '/users/:id', to: 'users#show', as: 'user'
-  resources :users
-  #resources :suitors, only:[:new, :create, :show, :index, :update, :edit, :destroy]
- 
+  #get '/users/:id', to: 'users#show', as: 'user'
+  #resources :users
+
+  get '/auth/facebook/callback' => 'sessions#fbcreate'
+   
   resources :meetings
 
   resources :suitors do
