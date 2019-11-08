@@ -21,9 +21,9 @@ class MeetingsController < ApplicationController
 
     def index
         if params[:suitor_id] && suitor = Suitor.find_by_id(params[:suitor_id])
-            meetings = suitor.meetings
+            @meetings = suitor.meetings
         else
-            meetings = Meeting.all
+            @meetings = Meeting.all
         end
 
     end

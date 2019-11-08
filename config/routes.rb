@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   #get '/users/:id', to: 'users#show', as: 'user'
-  #resources :users
+  resources :users
 
   get '/auth/facebook/callback' => 'sessions#fbcreate'
    
