@@ -7,6 +7,7 @@ class MeetingsController < ApplicationController
         else
             #unnested route
         @meeting = Meeting.new
+        @meeting.build_suitor
         end
     end
     
@@ -45,7 +46,7 @@ class MeetingsController < ApplicationController
 
     private 
     def meeting_params
-        params.require(:meeting).permit(:venue, :location, :appointment, :user_id, :suitor_id, :rating, :note)
+        params.require(:meeting).permit(:venue, :location, :appointment, :user_id, :suitor_id, :rating, :note, suitor_attributes: [:name, :occupation, :age, :dating_app, :hometown])
     end
 
     def set_meeting

@@ -1,6 +1,7 @@
 class Suitor < ApplicationRecord
 
-    validates :name, :age, presence: true
+    validates :name, :age, :dating_app, :hometown, presence: true
+    validates :name, uniqueness: true
     #scope method
     #scope :sort_by_age, -> {order(:age)}
     has_many :meetings

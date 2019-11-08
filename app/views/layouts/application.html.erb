@@ -11,6 +11,10 @@
 
   <body>
     <%= link_to 'Log Out', logout_path, method: :delete %>
+    <%= link_to 'All Dates', meetings_path %>
+   <% if logged_in? %>
+    <%= link_to 'My Homepage', user_path(@user) %>
+  <% end %>
     <%= yield %>
   </body>
 </html>
