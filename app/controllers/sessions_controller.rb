@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
+  
+    
     def new
         @user = User.new
+        
     end
 
     def create
@@ -26,6 +29,7 @@ class SessionsController < ApplicationController
     end
 
     def home
+        redirect_to user_path(current_user) if logged_in?
     end
 
     def destroy
