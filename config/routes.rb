@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :meetings
 
   resources :suitors do
-    resources :meetings, only: [:new, :show, :index]
+    resources :meetings, only: [:new, :create, :show, :index]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #resources :suitors, only:[:show] is the same as get 'pets/:id' => 'pets#show'

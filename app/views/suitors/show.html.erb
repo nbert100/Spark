@@ -5,6 +5,8 @@ Age: <%= @suitor.age %>
 <br>
 Occupation: <%= @suitor.occupation %>
 <br>
+<%= @suitor.dating_app %>
+<br>
 <%= link_to "Edit Suitor", edit_suitor_path(@suitor) %>
 <br>
 <%= link_to "Delete Suitor", suitor_path(@suitor), method: :delete %>

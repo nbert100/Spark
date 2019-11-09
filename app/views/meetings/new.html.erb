@@ -2,7 +2,7 @@
 
 <%= render partial: 'layouts/errors', locals: {object: @meeting} %>
 
-<%= form_for(@meeting) do |f| %>
+<%= form_for [@suitor, @meeting] do |f| %>
 <%= f.label :venue %>
 <%= f.select(:venue, ["Restaurant", "Coffee Shop", "Bar", "Other"]) %>
 <br>
@@ -16,6 +16,8 @@
 <%= f.label :suitor_id, "Choose a Suitor" %>
 <%= f.collection_select :suitor_id, Suitor.all, :id, :name, prompt: true %>
 <br>
+
+<% if !params[:suitor_id] %>
 <h4> or create new suitor </h4>
 <%= f.fields_for :suitor do |s| %>
     <%= s.label :name %>
@@ -28,10 +30,11 @@
     <%= s.number_field :age %>
 
     <%= s.label :dating_app %>
-    <%= s.text_field :dating_app %>
+    <%= s.select(:dating_app, ["Bumble", "Coffee Meets Bagel", "Hinge", "Match", "OKCupid", "Plenty of Fish", "Raya", "Tinder"]) %>
 
     <%= s.label :hometown %>
     <%= s.text_field :hometown %>
+    <% end %>
     <% end %>
 <%= %>
 

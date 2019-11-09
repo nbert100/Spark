@@ -5,11 +5,10 @@ class SuitorsController < ApplicationController
     end
 
     def create
-        @suitor = Suitor.new(suitor_params(:name, :age, :occupation))
+        @suitor = Suitor.new(suitor_params)
         if @suitor.save
             redirect_to suitor_path(@suitor)
         else
-            raise.inspect
             render :new
         end
     end
@@ -48,8 +47,8 @@ class SuitorsController < ApplicationController
     #     params.require(:suitor).permit(:name, :occupation, :age)
     # end
 
-    def suitor_params(*args)
-        params.require(:suitor).permit(*args)
+    def suitor_params
+        params.require(:suitor).permit(:name, :occupation, :age, :hometown, :dating_app)
     end
 
     def set_suitor
@@ -57,6 +56,6 @@ class SuitorsController < ApplicationController
         if !@suitor
             redirect_to suitors_path
         end
-        #for dynamic routes
+        
     end
 end
