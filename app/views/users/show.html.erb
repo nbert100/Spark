@@ -1,3 +1,11 @@
 <h1>Hello <%= @user.name %> </h1>
 <%= link_to "Add Suitor", new_suitor_path(@suitor) %>
 <%= link_to "Add Date", new_meeting_path(@meeting) %>
+<ul>
+<% @user.meetings.most_recent.each do |m| %>
+    <p><%= m.appointment.strftime('%A, %b %d, %Y') %>
+    <br>
+    <%= link_to m.location, meeting_path(m) %> with <%= link_to m.suitor.name, suitor_path(m.suitor) %>
+    <br></p>
+    <% end %>
+</ul>

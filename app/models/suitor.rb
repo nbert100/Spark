@@ -1,14 +1,17 @@
 class Suitor < ApplicationRecord
 
     validates :name, :age, :dating_app, :hometown, presence: true
-    #validates :name, :age, :hometown, uniqueness: true
+    #validate :name, :age, :hometown, uniqueness: true
+    validate :no_duplicate
     has_many :meetings
     has_many :users, through: :meetings
     
 
-       # def no_duplicate_suitor
-    #     @suitor.name && @suitor.age && @suitor.hometown
-    # end
+    def no_duplicate
+        if Suitor.find_by(name: name, age: age, hometown: hometown)
+            errors.add(:name, "This suitor already exists")
+        end
+    end
 
     # def self.sort_by_age
     #     order(age: :desc)

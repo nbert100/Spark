@@ -1,13 +1,11 @@
 class MeetingsController < ApplicationController
+    
     def new
-        #check if nested and an actual id
         if params[:suitor_id] && suitor = Suitor.find_by_id(params[:suitor_id])
-        #nested route
-        @meeting = suitor.meetings.build
+            @meeting = suitor.meetings.build 
         else
-            #unnested route
-        @meeting = Meeting.new
-        @meeting.build_suitor
+            @meeting = Meeting.new
+            @meeting.build_suitor  
         end
     end
     
@@ -16,6 +14,7 @@ class MeetingsController < ApplicationController
         if @meeting.save
             redirect_to meeting_path(@meeting)
         else
+            @meeting.build_suitor unless @meeting.suitor
             render :new
         end
     end
@@ -39,9 +38,17 @@ class MeetingsController < ApplicationController
 
     def update
         set_meeting
+        if @meeting.update(meeting_params)
+            redirect_to meeting_path(@meeting)
+        else
+            render :edit
+        end
     end
 
     def destroy
+        set_meeting
+        @meeting.destroy
+        redirect_to user_path(current_user)
     end
 
     private 

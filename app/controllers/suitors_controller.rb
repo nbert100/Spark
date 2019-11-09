@@ -27,11 +27,11 @@ class SuitorsController < ApplicationController
 
     def update
         set_suitor
-        if @suitor.update(suitor_params(:occupation))
-            redirect_to suitor_path(@suitor)
-        else
-            render :edit
-        end
+        # if @suitor.update(suitor_params(:oc))
+        #     redirect_to suitor_path(@suitor)
+        # else
+        #     render :edit
+        # end
     end
 
     def destroy
@@ -41,11 +41,6 @@ class SuitorsController < ApplicationController
     end
 
     private
-
-    #for security purposes
-    # def suitor_params
-    #     params.require(:suitor).permit(:name, :occupation, :age)
-    # end
 
     def suitor_params
         params.require(:suitor).permit(:name, :occupation, :age, :hometown, :dating_app)

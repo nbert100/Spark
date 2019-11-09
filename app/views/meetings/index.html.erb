@@ -2,6 +2,6 @@
 
 
 
-<% @meetings.order_venue.each do |m| %>
+<% @meetings.most_recent.each do |m| %>
     <p><%= link_to m.location, meeting_path(m) %> - <%= m.venue %> with <%= m.suitor.name %></p>
 <% end %>

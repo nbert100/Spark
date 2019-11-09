@@ -1,12 +1,7 @@
 <h1>Contestants</h1>
-<%= form_tag(url: "/suitors", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
-<br>
+
 <% @suitors.each do |s| %>
-    <%= link_to s.name, suitor_path(s) %>, <%= s.age %>
+    <%= link_to s.name, suitor_path(s) %>, <%= s.age %>, <%=s.try(:hometown) %>
     <br>
-    <%= s.users.name %>
+    
     <% end %>
