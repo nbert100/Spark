@@ -1,17 +1,17 @@
 class SuitorsController < ApplicationController
 
-    def new
-        @suitor = Suitor.new
-    end
+    # def new
+    #     @suitor = Suitor.new
+    # end
 
-    def create
-        @suitor = Suitor.new(suitor_params)
-        if @suitor.save
-            redirect_to suitor_path(@suitor)
-        else
-            render :new
-        end
-    end
+    # def create
+    #     @suitor = Suitor.new(suitor_params)
+    #     if @suitor.save
+    #         redirect_to suitor_path(@suitor)
+    #     else
+    #         render :new
+    #     end
+    # end
 
     def index
         @suitors = Suitor.all

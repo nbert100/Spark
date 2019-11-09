@@ -1,7 +1,7 @@
 class Meeting < ApplicationRecord
     validates :venue, :location, :appointment, presence: true
     belongs_to :user
-    belongs_to :suitor, optional: true
+    belongs_to :suitor
     validates :suitor_id, presence: true
     validates_associated :suitor 
     #custom validation for duplication
@@ -9,8 +9,8 @@ class Meeting < ApplicationRecord
     def suitor_attributes=(attributes)
         
         suitor = Suitor.find_or_create_by(attributes)
-        # self.suitor = suitor if suitor.present?
-        self.suitor = suitor if suitor.valid? || !self.suitor
+        self.suitor = suitor if suitor.present? || !self.suitor
+        #self.suitor = suitor if suitor.valid? || !self.suitor
     end
 
     # def duplicate

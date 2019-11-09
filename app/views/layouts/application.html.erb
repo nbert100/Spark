@@ -4,12 +4,13 @@
     <title>Spark</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="/stylesheets/main.css" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <div class="nav">
   <% if logged_in? %>
     <%= link_to 'Log Out', logout_path, method: :delete %>
     <%= link_to 'All Dates', meetings_path %>
@@ -18,6 +19,8 @@
     <%= link_to 'My Homepage', user_path(current_user) %>
 
   <% end %>
+  </div>
     <%= yield %>
   </body>
+ 
 </html>

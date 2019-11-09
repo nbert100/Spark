@@ -2,9 +2,9 @@
 
 <%= render partial: 'layouts/errors', locals: {object: @meeting} %>
 
-<%= form_for [@suitor, @meeting] do |f| %>
+<%= form_for @meeting do |f| %>
 <%= f.label :venue %>
-<%= f.select(:venue, ["Restaurant", "Coffee Shop", "Bar", "Other"]) %>
+<%= f.select(:venue, ["Restaurant", "Coffee Shop", "Bar", "Other"], prompt: true) %>
 <br>
 <%= f.label(:location, "Where:") %>
 <%= f.text_field :location %>
@@ -30,7 +30,7 @@
     <%= s.number_field :age %>
 
     <%= s.label :dating_app %>
-    <%= s.select(:dating_app, ["Bumble", "Coffee Meets Bagel", "Hinge", "Match", "OKCupid", "Plenty of Fish", "Raya", "Tinder"]) %>
+    <%= s.select(:dating_app, ["Bumble", "Coffee Meets Bagel", "Hinge", "Match", "OKCupid", "Plenty of Fish", "Raya", "Tinder"], prompt: true) %>
 
     <%= s.label :hometown %>
     <%= s.text_field :hometown %>
