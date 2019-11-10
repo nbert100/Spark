@@ -3,7 +3,7 @@ class Meeting < ApplicationRecord
     belongs_to :user
     belongs_to :suitor
     validates :suitor_id, presence: true
-    validates_associated :suitor 
+    #validates_associated :suitor 
     #custom validation for duplication
     
     def suitor_attributes=(attributes)

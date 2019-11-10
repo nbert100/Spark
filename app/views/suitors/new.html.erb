@@ -2,20 +2,21 @@
 
 <%= render partial: 'layouts/errors', locals: {object: @suitor} %>
 
-<%= form_for(@suitor) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<br>
-<%= f.label :age %>
-<%= f.number_field :age, min: 18 %>
-<br>
-<%= f.label :occupation %>
-<%= f.text_field :occupation %>
-<br>
-<%= f.label :dating_app, "Dating App:" %>
-<%= f.select(:dating_app, ["Bumble", "Coffee Meets Bagel", "Hinge", "Match", "OKCupid", "Plenty of Fish", "Raya", "Tinder"]) %>
-<br>
-<%= f.label :hometown %>
-<%= f.text_field :hometown %>
-<%= f.submit %>
+<%= f.fields_for :suitor do |s| %>
+    <%= s.label :name %>
+    <%= s.text_field :name %>
+
+    <%= s.label :occupation %>
+    <%= s.text_field :occupation %>
+
+    <%= s.label :age %>
+    <%= s.number_field :age %>
+
+    <%= s.label :dating_app %>
+    <%= s.select(:dating_app, ["Bumble", "Coffee Meets Bagel", "Hinge", "Match", "OKCupid", "Plenty of Fish", "Raya", "Tinder"], prompt: true) %>
+
+    <%= s.label :hometown %>
+    <%= s.text_field :hometown %>
+    <% end %>
+    
 <% end %>

@@ -8,11 +8,14 @@ class Suitor < ApplicationRecord
     
 
     def no_duplicate
-        if Suitor.find_by(name: name, age: age, hometown: hometown)
+        if self.find_by(name: name, age: age, hometown: hometown)
             errors.add(:name, "This suitor already exists")
         end
     end
 
+    def suitor_description
+        "#{self.name}, #{self.age} - #{self.hometown}"
+    end
     # def self.sort_by_age
     #     order(age: :desc)
     # end
@@ -25,7 +28,8 @@ class Suitor < ApplicationRecord
         where("age < ?", age)
     end
 
-    def self.by_dating_app(dating_app)
-        where("dating_app = ?", dating_app)
+    #does this work?
+    def self.by_dating_app(app)
+        where("dating_app = ?", app)
     end
 end

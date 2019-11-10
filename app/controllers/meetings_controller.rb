@@ -16,6 +16,7 @@ class MeetingsController < ApplicationController
         else
             @meeting.build_suitor unless @meeting.suitor
             render :new
+            
         end
     end
 

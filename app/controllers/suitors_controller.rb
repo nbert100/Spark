@@ -4,14 +4,14 @@ class SuitorsController < ApplicationController
     #     @suitor = Suitor.new
     # end
 
-    # def create
-    #     @suitor = Suitor.new(suitor_params)
-    #     if @suitor.save
-    #         redirect_to suitor_path(@suitor)
-    #     else
-    #         render :new
-    #     end
-    # end
+    def create
+        @suitor = Suitor.new(suitor_params)
+        if @suitor.save
+            redirect_to suitor_path(@suitor)
+        else
+            render :new
+        end
+    end
 
     def index
         @suitors = Suitor.all
@@ -21,18 +21,18 @@ class SuitorsController < ApplicationController
         set_suitor
     end
 
-    def edit
-        set_suitor
-    end
+    # def edit
+    #     set_suitor
+    # end
 
-    def update
-        set_suitor
-        # if @suitor.update(suitor_params(:oc))
-        #     redirect_to suitor_path(@suitor)
-        # else
-        #     render :edit
-        # end
-    end
+    # def update
+    #     set_suitor
+    #     if @suitor.update(suitor_params)
+    #         redirect_to suitor_path(@suitor)
+    #     else
+    #         render :edit
+    #     end
+    # end
 
     def destroy
         set_suitor
