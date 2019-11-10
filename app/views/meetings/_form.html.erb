@@ -1,0 +1,21 @@
+<%= render partial: 'layouts/errors', locals: {object: @meeting} %>
+
+<%= form_for @meeting do |f| %>
+<%= f.label :venue %>
+<%= f.select(:venue, ["Restaurant", "Coffee Shop", "Bar", "Other"], prompt: true) %>
+<br>
+<%= f.label(:location, "Where:") %>
+<%= f.text_field :location %>
+<br>
+<%= f.label(:appointment, "When:") %>
+<%= f.date_field :appointment %>
+<br>
+<%= f.label(:rating, "Rate your Date from 1 - 5:") %>
+<%= f.number_field :rating, min: 1, max: 5 %>
+<br>
+<%= f.label :suitor_id, "Choose a Suitor" %>
+<%= f.collection_select :suitor_id, Suitor.order('name ASC'), :id, :suitor_description, prompt: true %>
+<br>
+  
+    <%= f.submit %>
+    <% end %>

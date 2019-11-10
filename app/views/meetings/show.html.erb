@@ -6,6 +6,7 @@ on <%= @meeting.appointment.strftime('%A, %b %d, %Y') %>
 <br>
 <br>
 <%= @meeting.user.name %>
+<%= @meeting.try(:rating) %>
 
 </p>
 

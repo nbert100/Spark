@@ -3,5 +3,7 @@
 
 
 <% @meetings.most_recent.each do |m| %>
-    <p><%= link_to m.location, meeting_path(m) %> - <%= m.venue %> with <%= m.suitor.name %></p>
+    <p><%= link_to m.location, meeting_path(m) %> - <%= m.venue %> with <%= m.suitor.name %>
+    <br> 
+    Rating : <%= m.try(:rating) %> out of 5 </p>
 <% end %>
