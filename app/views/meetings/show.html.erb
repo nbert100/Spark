@@ -1,15 +1,20 @@
 <h1>Meeting Show Page</h1>
-<p> <%= @meeting.location %> (<%= @meeting.venue %>)
-with <%= @meeting.suitor.name %>
-<br>
-on <%= @meeting.appointment.strftime('%A, %b %d, %Y') %>
-<br>
-<br>
-<%= @meeting.user.name %>
-<%= @meeting.try(:rating) %>
 
+<br>
+<h4> <%= @meeting.location %> (<%= @meeting.venue %>)
+with <%= link_to @meeting.suitor.name, @meeting.suitor  %>
+<br>
+on <%= @meeting.appointment.strftime('%A %b %d, %Y') %></h4>
+
+<p>
+Rating: <%= @meeting.try(:rating) %>
+<br>
+Note: <%= @meeting.try(:note) %>
+<br>
+Entered by: <%= @meeting.user.name %>
 </p>
 
-<%= form_tag(user_path(current_user), method: "delete") do %>
-    <%= submit_tag("Delete Date") %>
+<% if authorized_to_edit?(@meeting) %>
+<%= link_to "Edit Date", edit_meeting_path(@meeting) %>
+<%= link_to "Delete Date", meeting_path(@meeting), method: :delete %>
 <% end %>

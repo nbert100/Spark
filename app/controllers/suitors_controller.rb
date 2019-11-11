@@ -1,13 +1,13 @@
 class SuitorsController < ApplicationController
 
-    # def new
-    #     @suitor = Suitor.new
-    # end
+    def new
+        @suitor = Suitor.new
+    end
 
     def create
         @suitor = Suitor.new(suitor_params)
-        if @suitor.save
-            redirect_to suitor_path(@suitor)
+        if @suitor.save 
+            redirect_to suitors_path
         else
             render :new
         end
@@ -21,19 +21,7 @@ class SuitorsController < ApplicationController
         set_suitor
     end
 
-    # def edit
-    #     set_suitor
-    # end
-
-    # def update
-    #     set_suitor
-    #     if @suitor.update(suitor_params)
-    #         redirect_to suitor_path(@suitor)
-    #     else
-    #         render :edit
-    #     end
-    # end
-
+    
     def destroy
         set_suitor
         @suitor.destroy

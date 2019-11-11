@@ -7,10 +7,8 @@ class Meeting < ApplicationRecord
     #custom validation for duplication
     
     def suitor_attributes=(attributes)
-        
         suitor = Suitor.find_or_create_by(attributes)
         self.suitor = suitor if suitor.present? || !self.suitor
-        #self.suitor = suitor if suitor.valid? || !self.suitor
     end
 
     # def duplicate

@@ -1,12 +1,18 @@
 <h1>This is the show page</h1>
+
 Name: <%= @suitor.name %>
 <br>
 Age: <%= @suitor.age %>
 <br>
 Occupation: <%= @suitor.occupation %>
 <br>
-Dating App Used: <%= @suitor.dating_app %>
-<br>
-<%= link_to "Edit Suitor", edit_suitor_path(@suitor) %>
-<br>
-<%= link_to "Delete Suitor", suitor_path(@suitor), method: :delete %>
+<ol>
+<% @suitor.meetings.most_recent.each do |m| %>
+    <p><%= m.appointment.strftime('%A, %b %d, %Y') %>
+    <br>
+    <%= link_to m.location, meeting_path(m) %> with <%= link_to m.user.name, user_path(m.user) %>
+    <br>
+    Rating: <%= m.rating %> 
+    <br></p>
+    <% end %>
+</ol>

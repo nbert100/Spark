@@ -16,6 +16,7 @@
     <%= link_to 'All Dates', meetings_path %>
     <%= link_to 'All Suitors', suitors_path %>
     <%= link_to 'New Date', new_meeting_path %>
+    <%= link_to "Add Suitor", new_suitor_path(@suitor) %>
     <%= link_to 'My Homepage', user_path(current_user) %>
 
   <% end %>

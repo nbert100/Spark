@@ -9,5 +9,7 @@ module ApplicationHelper
         !!current_user
     end
 
-   
+    def authorized_to_edit?(meeting)
+        meeting.user == current_user
+    end
 end
