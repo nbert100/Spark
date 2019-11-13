@@ -1,8 +1,6 @@
 <h1>All the Dates!</h1>
-
 <br>
-<br>
-<% @meetings.most_recent.each do |m| %>
+<% @meetings.each do |m| %>
     <p><%= link_to m.location, meeting_path(m) %> - <%= m.venue %> with <%= m.suitor.name %>
     <br> 
     Rating : <%= m.try(:rating) %> out of 5 </p>

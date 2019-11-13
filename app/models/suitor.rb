@@ -19,8 +19,7 @@ class Suitor < ApplicationRecord
         where("age < ?", age)
     end
 
-    #does this work?
-    def self.by_dating_app(app)
-        where("dating_app = ?", app)
+    def self.alphabet
+        order("name asc")
     end
 end

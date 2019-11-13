@@ -9,7 +9,14 @@ module ApplicationHelper
         !!current_user
     end
 
-    def authorized_to_edit?(meeting)
-        meeting.user == current_user
+    def authorized_to_edit?(object)
+        object.user == current_user
+    end
+
+    def redirect_if_not_logged_in
+        if !logged_in?
+            flash[:error] = "Please log in to view this page"
+            redirect_to '/'
+        end
     end
 end

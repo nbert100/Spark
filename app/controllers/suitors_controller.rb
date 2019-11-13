@@ -1,6 +1,7 @@
 class SuitorsController < ApplicationController
 
     def new
+        redirect_if_not_logged_in
         @suitor = Suitor.new
     end
 
@@ -14,7 +15,7 @@ class SuitorsController < ApplicationController
     end
 
     def index
-        @suitors = Suitor.all
+        @suitors = Suitor.alphabet
     end
 
     def show

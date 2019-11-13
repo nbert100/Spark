@@ -6,10 +6,6 @@ class Meeting < ApplicationRecord
     validates_associated :suitor 
     accepts_nested_attributes_for :suitor
 
-    # def suitor_attributes(attrs)
-    #     attrs.values.each do |a|
-    #         if attr
-    # end
     
     def self.order_venue
         order("venue desc")
@@ -19,4 +15,18 @@ class Meeting < ApplicationRecord
         order("appointment desc")
     end
 
+    def self.highest_rated
+        order("rating desc")
+    end
+
+    def self.average_rating
+        average(:rating)
+    end
+
+    scope :restaurant, -> {where(venue: "Restaurant")}
+    scope :coffee_shop, -> {where(venue: "Coffee Shop")}
+    scope :bar, -> {where(venue: "Bar")}
+    scope :other, -> {where(venue: "Other")}
+
+    scope :fancy_date, -> {where(dating_app: "Raya")}
 end

@@ -15,7 +15,7 @@
 <%= f.number_field :rating, min: 1, max: 5 %>
 <br>
 <%= f.label :suitor_id, "Choose a Suitor" %>
-<%= f.collection_select :suitor_id, Suitor.order('name ASC'), :id, :suitor_description, prompt: true %>
+<%= f.collection_select :suitor_id, Suitor.alphabet, :id, :suitor_description, prompt: true %>
 <br>
 <p>If your suitor is not listed, please click <%= link_to "here", new_suitor_path %> to create them before adding your date.</p>
 <br>

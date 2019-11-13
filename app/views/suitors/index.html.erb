@@ -1,7 +1,9 @@
 <h1>Contestants</h1>
 
+<ul>
 <% @suitors.each do |s| %>
-    <%= link_to s.name, suitor_path(s) %>, <%= s.age %>, <%=s.try(:hometown) %>
+    <%= link_to s.name, suitor_path(s) %>, <%= s.age %>, <%= s.hometown %>
     <br>
-    
+    <br>
     <% end %>
+</ul>
