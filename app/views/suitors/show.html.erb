@@ -1,4 +1,5 @@
-<h1>This is the show page</h1>
+<h1><%= @suitor.name %>'s Homepage</h1>
+
 
 Name: <%= @suitor.name %>
 <br>
@@ -6,6 +7,8 @@ Age: <%= @suitor.age %>
 <br>
 Occupation: <%= @suitor.occupation %>
 <br>
+
+<h3>Dates</h3>
 <ol>
 <% @suitor.meetings.most_recent.each do |m| %>
     <p><%= m.appointment.strftime('%A, %b %d, %Y') %>
