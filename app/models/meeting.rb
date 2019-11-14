@@ -7,10 +7,6 @@ class Meeting < ApplicationRecord
     accepts_nested_attributes_for :suitor
 
     
-    def self.order_venue
-        order("venue desc")
-    end
-
     def self.most_recent
         order("appointment desc")
     end
@@ -23,10 +19,9 @@ class Meeting < ApplicationRecord
         average(:rating)
     end
 
-    scope :restaurant, -> {where(venue: "Restaurant")}
-    scope :coffee_shop, -> {where(venue: "Coffee Shop")}
-    scope :bar, -> {where(venue: "Bar")}
-    scope :other, -> {where(venue: "Other")}
+    def self.by_suitor(suitor_id)
+        where(suitor: suitor_id)
+    end
 
-    scope :fancy_date, -> {where(dating_app: "Raya")}
+    
 end

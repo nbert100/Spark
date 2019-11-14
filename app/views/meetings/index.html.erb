@@ -1,6 +1,4 @@
-<% if !params[:suitor].blank? %>
-<% @meetings = Meeting.where(suitor: params[:suitor]) %>
-<% end %>
+
 <br>
 
 <h1>All the Dates!</h1>
@@ -16,7 +14,7 @@
 <div> 
     <h3> Filter Dates by Suitor </h3>
     <%= form_tag("/meetings", method: "get") do %>
-        <%= select_tag "suitor", options_from_collection_for_select(Suitor.all, "id", "suitor_description"), include_blank: true %>
+        <%= select_tag "suitor", options_from_collection_for_select(@suitors.alphabet, "id", "suitor_description"), include_blank: true %>
         <%= submit_tag "Filter" %>
         <% end %>
 </div>
