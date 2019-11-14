@@ -1,5 +1,6 @@
 class MeetingsController < ApplicationController
-    
+    helper_method :params
+
     def new
         redirect_if_not_logged_in
         if params[:suitor_id] && suitor = Suitor.find_by_id(params[:suitor_id])
@@ -22,11 +23,11 @@ class MeetingsController < ApplicationController
     end
 
     def index
-        if params[:suitor_id] && suitor = Suitor.find_by_id(params[:suitor_id])
-            @meetings = suitor.meetings.most_recent
-        else
+        # if params[:suitor_id] && suitor = Suitor.find_by_id(params[:suitor_id])
+        #     @meetings = suitor.meetings.most_recent
+        # else
             @meetings = Meeting.most_recent
-        end
+        #end
 
     end
 

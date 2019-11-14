@@ -15,7 +15,7 @@ class SuitorsController < ApplicationController
     end
 
     def index
-        @suitors = Suitor.alphabet
+        @suitors = Suitor.all
     end
 
     def show

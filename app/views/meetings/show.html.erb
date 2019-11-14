@@ -1,8 +1,8 @@
-<h1>Meeting Show Page</h1>
+<h1>Date with <%= link_to @meeting.suitor.name, @meeting.suitor  %></h1>
 
 <br>
 <h4> <%= @meeting.location %> (<%= @meeting.venue %>)
-with <%= link_to @meeting.suitor.name, @meeting.suitor  %>
+
 <br>
 on <%= @meeting.appointment.strftime('%A %b %d, %Y') %></h4>
 
