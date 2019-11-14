@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-    # helper_method :params
+ 
 
     def new
         redirect_if_not_logged_in
@@ -37,6 +37,7 @@ class MeetingsController < ApplicationController
     end
 
     def edit
+        redirect_if_not_logged_in
         set_meeting
     end
 
@@ -52,6 +53,7 @@ class MeetingsController < ApplicationController
     def destroy
         set_meeting
         @meeting.destroy
+        flash[:message] = "Successfully deleted."
         redirect_to user_path(current_user)
     end
 

@@ -1,27 +1,40 @@
 div.nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    height: 50%;
-    
-    
-  }
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: auto;
+  background-color: #f1f1f1;
+  
 
-  div.nav a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-    text-align: center;
-  }
+
+}
+
+div.nav a {
+  display: inline;
+  color: #000;
+  padding: 12px 8px;
+  /* padding-right: 8px; */
+  text-decoration: none;
+  text-align: center;
+  font-family: sans-serif
   
-  li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-  }
-  
- 
+}
+      
+ h1 {
+   font-family: sans-serif;
+   font-size: 40px;
+   
+ }
+
+ h3 {
+   font-family: sans-serif;
+ }
+
+ a:link {
+   text-decoration: none;
+ }
+
+ a:hover {
+   font-weight: bold;
+ }

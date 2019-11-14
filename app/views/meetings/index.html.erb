@@ -8,7 +8,7 @@
     <p><%= link_to m.location, meeting_path(m) %> - <%= m.venue %> with <%= m.suitor.name %>
     <br> 
     Rating : <%= m.try(:rating) %> out of 5 </p>
-    When: <%= m.appointment.strftime('%A %b %d, %Y') %>
+   
 <% end %>
 
 <div> 

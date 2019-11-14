@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         else
             flash[:error] = "Invalid Login. Please try again."
             redirect_to '/login'
-            #only get errors if you render
+        
         end
     end
 
