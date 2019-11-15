@@ -17,7 +17,25 @@
 <%= f.label :suitor_id, "Choose a Suitor" %>
 <%= f.collection_select :suitor_id, Suitor.alphabet, :id, :suitor_description, prompt: true %>
 <br>
-<p>If your suitor is not listed, please click <%= link_to "here", new_suitor_path %> to create them before adding your date.</p>
+Or Create a New Suitor: 
+<br>
+<%= f.fields_for :suitor do |s| %>
+    <%= s.label :name %>
+    <%= s.text_field :name %>
+    <br>
+    <%= s.label :occupation %>
+    <%= s.text_field :occupation %>
+    <br>
+    <%= s.label :age %>
+    <%= s.number_field :age %>
+    <br>
+    <%= s.label :dating_app %>
+    <%= s.select(:dating_app, ["Bumble", "Coffee Meets Bagel", "Hinge", "Match", "OKCupid", "Plenty of Fish", "Raya", "Tinder", "Other", "In Person (Lucky you!)"], prompt: true) %>
+    <br>
+    <%= s.label :hometown %>
+    <%= s.text_field :hometown %>
+    <br>
+    <% end %>
 <br>
 <%= f.label :note %>
 <%= f.text_area :note %>

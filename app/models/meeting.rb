@@ -1,10 +1,17 @@
 class Meeting < ApplicationRecord
-    validates :venue, :location, :appointment, presence: true
+    
     belongs_to :user
     belongs_to :suitor
-    validates :suitor_id, presence: true
+    validates :venue, :location, :appointment, presence: true
+    #accepts_nested_attributes_for :suitor
+    validates :suitor, presence: true
     validates_associated :suitor 
-    accepts_nested_attributes_for :suitor
+    
+    def suitor_attributes=(attributes)
+        suitor = Suitor.find_or_create_by(attributes)
+        # binding.pry
+        self.suitor = suitor if suitor.valid? || !self.suitor
+     end
 
     
     def self.most_recent

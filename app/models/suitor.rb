@@ -1,7 +1,7 @@
 class Suitor < ApplicationRecord
 
     validates :name, :age, :dating_app, :hometown, presence: true
-    validates :name, uniqueness: true
+    # validates :name, uniqueness: true
     has_many :meetings
     has_many :users, through: :meetings
     
