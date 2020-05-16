@@ -14,7 +14,9 @@ Note: <%= @meeting.try(:note) %>
 Entered by: <%= @meeting.user.name %>
 </p>
 
+<div class="buttons">
 <% if authorized_to_edit?(@meeting) %>
-<%= link_to "Edit Date", edit_meeting_path(@meeting) %>
-<%= link_to "Delete Date", meeting_path(@meeting), method: :delete %>
+<%= button_to "Edit Date", edit_meeting_path(@meeting), class: "button" %>
+<%= button_to "Delete Date", meeting_path(@meeting), method: :delete, class: "button" %>
 <% end %>
+</div>
