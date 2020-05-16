@@ -10,6 +10,7 @@ Occupation: <%= @suitor.occupation %>
 
 <h3>Dates - Average Rating: <%= @suitor.meetings.average_rating %></h3> 
 <ol>
+<p>
 <% @suitor.meetings.most_recent.each do |m| %>
     <p><%= m.appointment.strftime('%A, %b %d, %Y') %>
     <br>
@@ -18,4 +19,5 @@ Occupation: <%= @suitor.occupation %>
     Rating: <%= m.rating %> 
     <br></p>
     <% end %>
+    </p>
 </ol>

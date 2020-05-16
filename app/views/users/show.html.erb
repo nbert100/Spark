@@ -1,10 +1,15 @@
+<div class="user-title-container">
 <h1><%= @user.name %>'s Homepage </h1>
-
+</div>
+<div class="date-container">
 <ul>
+<p>
 <% @user.meetings.most_recent.each do |m| %>
     <p><%= m.appointment.strftime('%A, %b %d, %Y') %>
     <br>
     <%= link_to m.location, meeting_path(m) %> with <%= link_to m.suitor.name, suitor_path(m.suitor) %>
     <br></p>
     <% end %>
+    </p>
 </ul>
+</div>

@@ -17,7 +17,9 @@
 <%= f.label :suitor_id, "Choose a Suitor" %>
 <%= f.collection_select :suitor_id, Suitor.alphabet, :id, :suitor_description, prompt: true %>
 <br>
+<br>
 Or Create a New Suitor: 
+<br>
 <br>
 <%= f.fields_for :suitor do |s| %>
     <%= s.label :name %>
